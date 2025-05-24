@@ -1,4 +1,6 @@
 PPO/checkpoints
+!PPO/checkpoints/rews_5000.json
+!PPO/checkpoints/ppo_5000.pth
 DDPG/checkpoints
 !DDPG/checkpoints/rews_custom_80000.json
 !DDPG/checkpoints/rews_50000.json

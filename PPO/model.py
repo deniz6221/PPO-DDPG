@@ -31,5 +31,3 @@ class Critic(nn.Module):
 
     def forward(self, x):
         return self.critic_head(x)
-
-

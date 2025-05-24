@@ -4,13 +4,16 @@ import config
 import json
 
 
+def custom_reward_function(reward, observation):
+    return reward - 0.1 * observation[1]
+    
 if __name__ == "__main__":
-    max_timesteps = 200
-    env = gym.make(config.ENV_NAME, max_episode_steps=max_timesteps, terminate_when_unhealthy=False)
+    max_timesteps = 500
+    env = gym.make(config.ENV_NAME, max_episode_steps=max_timesteps)
     state_dim = env.observation_space.shape[0]
     action_dim = env.action_space.shape[0]
     agent = PPOAgent(state_dim, action_dim)
-    num_episodes = 20000
+    num_episodes = 5000
     
 
     rews = []
@@ -23,6 +26,7 @@ if __name__ == "__main__":
         for t in range(max_timesteps):
             action = agent.select_action(state)
             next_state, reward, terminated, truncated, _ = env.step(action)
+            reward = custom_reward_function(reward, next_state)
             
             agent.rewards.append(reward)
             agent.dones.append(terminated or truncated)

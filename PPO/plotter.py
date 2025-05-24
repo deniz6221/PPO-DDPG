@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import json
 
 
-rews = json.load(open("checkpoints/rews_10000.json"))
+rews = json.load(open("checkpoints/rews_5000.json"))
 rews = np.array(rews)
 
 window_size = 100

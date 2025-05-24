@@ -24,6 +24,7 @@ class PPOAgent:
     def select_action(self, state):
         state = torch.FloatTensor(state).unsqueeze(0)
         mean, log_std = self.actor(state)
+        log_std = log_std.clamp(-20, 2)
         std = torch.exp(log_std)
         dist = torch.distributions.Normal(mean, std)
         action = dist.rsample()
@@ -128,5 +129,3 @@ class PPOAgent:
         checkpoint = torch.load(path)
         self.actor.load_state_dict(checkpoint["actor"])
         self.critic.load_state_dict(checkpoint["critic"])
-
-
