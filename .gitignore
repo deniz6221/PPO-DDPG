@@ -1,0 +1,8 @@
+PPO/checkpoints
+DDPG/checkpoints
+!DDPG/checkpoints/rews_custom_80000.json
+!DDPG/checkpoints/rews_50000.json
+!DDPG/checkpoints/ddpg_50000.pth
+.vscode/
+PPO/__pycache__
+DDPG/__pycache__

@@ -92,7 +92,8 @@ class DDPGAgent:
             'target_actor_state_dict': self.target_actor.state_dict(),
             'target_critic_state_dict': self.target_critic.state_dict(),
             'actor_optimizer_state_dict': self.actor_optimizer.state_dict(),
-            'critic_optimizer_state_dict': self.critic_optimizer.state_dict()
+            'critic_optimizer_state_dict': self.critic_optimizer.state_dict(),
+            "replay_buffer": self.replay_buffer.buffer,
         }, filename)
 
     def load_checkpoint(self, filename):
@@ -103,6 +104,7 @@ class DDPGAgent:
         self.target_critic.load_state_dict(checkpoint['target_critic_state_dict'])
         self.actor_optimizer.load_state_dict(checkpoint['actor_optimizer_state_dict'])
         self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer_state_dict'])
+        self.replay_buffer.buffer = checkpoint["replay_buffer"]
 
     
     def save_models(self, filename):

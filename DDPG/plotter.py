@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import json
 
 
-rews = json.load(open("checkpoints/rews_15000.json"))
+rews = json.load(open("checkpoints/rews_custom_80000.json"))
 rews = np.array(rews)
 
-window_size = 100
+window_size = 1000
 
 smoothed_rews = np.convolve(rews, np.ones(window_size)/window_size, mode='valid')
 
