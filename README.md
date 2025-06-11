@@ -1,5 +1,5 @@
 ## PPO and DDPG Implementation
-This project implements DDPG and PPO to solve the LunarLanderContinuous-v3 enviroment.
+This project implements DDPG and PPO to solve the LunarLanderContinuous-v3 environment.
 
 ### DDPG
 The DDPG model is trained in 2 stages for it to be successful. The agent only learns how to fly at the first stage with the default rewards. 
